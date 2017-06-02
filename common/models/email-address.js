@@ -5,4 +5,9 @@
 
 module.exports = function(EmailAddress) {
 
+  EmailAddress.observe('before save', function test(ctx, next) {
+    console.log('-------- before save hook called on EmailAddress model. ------------ ')
+    next();
+  });
+
 };

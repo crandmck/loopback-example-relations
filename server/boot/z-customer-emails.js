@@ -51,4 +51,10 @@ module.exports = function(app, cb) {
       });
     });
   });
+
+  var EmailAddress = app.models.EmailAddress;
+  EmailAddress.observe('before save', function test(ctx, next) {
+    console.log('-------- BOOT SCRIPT -- before save hook called on EmailAddress model. ------------ ')
+    next();
+  });
 };
